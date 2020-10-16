@@ -1,8 +1,9 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  mode: 'production',
   devtool: 'source-map',
   entry: [path.resolve(__dirname, './index.js')],
   target: 'web',
@@ -27,14 +28,14 @@ module.exports = {
       },
       {
         test: /\.[s]css$/,
-        use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
   },
   resolve: {
     alias: {
-      'components': path.resolve(__dirname, 'src/components/'),
-      'pages': path.resolve(__dirname, 'src/pages/')
-    }
-  }
-}
+      components: path.resolve(__dirname, 'src/components/'),
+      pages: path.resolve(__dirname, 'src/pages/'),
+    },
+  },
+};

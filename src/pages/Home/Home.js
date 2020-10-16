@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Home = () => (
-  <div className="home">
-    <Hello />
+  <div className="home-page">
     <div className="directory-menu">
       <div className="menu-item">
         <div className="content">
@@ -36,6 +35,6 @@ const Home = () => (
       </div>
     </div>
   </div>
-)
+);
 
-export default Home
+export default Home;

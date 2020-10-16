@@ -1,7 +1,8 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   devtool: 'inline-source-map',
   entry: [path.resolve(__dirname, './index.js')],
   target: 'web',
@@ -24,9 +25,9 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.[s]css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
-}
+};
