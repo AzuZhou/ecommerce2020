@@ -1,1 +1,7 @@
-@import 'src/pages/Home/home';
+@import 'src/style/home';
+@import 'src/style/directory';
+@import 'src/style/menu-item';
+
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
