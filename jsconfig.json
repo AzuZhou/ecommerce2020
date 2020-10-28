@@ -4,9 +4,9 @@
     "target": "es6",
     "baseUrl": ".",
     "paths": {
-      "components/*": ["./src/Components/*"],
-      "pages/*": ["./src/Pages/*"],
+      "assets/*": ["./src/assets/*"],
+      "components/*": ["./src/components/*"],
+      "pages/*": ["./src/pages/*"]
     }
-  },
-  "exclude": ["node_modules"]
+  }
 }
