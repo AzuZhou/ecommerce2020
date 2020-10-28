@@ -1,7 +1,14 @@
 @import 'src/style/home';
 @import 'src/style/directory';
 @import 'src/style/menu-item';
+@import 'src/style/collection-preview';
+@import 'src/style/collection-item';
 
 body {
   font-family: 'Open Sans Condensed', sans-serif;
+  padding: 20px 60px;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
