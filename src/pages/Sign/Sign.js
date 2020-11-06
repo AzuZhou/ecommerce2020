@@ -1,5 +1,4 @@
 import React from 'react';
-import SingIn from 'components/SignIn';
 import SignIn from 'components/SignIn';
 
 const Sign = () => (
