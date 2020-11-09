@@ -22,7 +22,7 @@ const App = () => {
     });
 
     return () => unsubscribeFromAuth();
-  }, []);
+  });
 
   return (
     <div>
