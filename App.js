@@ -8,7 +8,6 @@ import { auth, createUserProfileDocument } from 'utils/firebase/firebase';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
-  console.log('App -> currentUser', currentUser);
 
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
