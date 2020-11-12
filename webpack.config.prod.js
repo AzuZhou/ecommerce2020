@@ -38,6 +38,7 @@ module.exports = {
       pages: path.resolve(__dirname, 'src/pages/'),
       assets: path.resolve(__dirname, 'src/assets/'),
       utils: path.resolve(__dirname, 'src/utils/'),
+      data: path.resolve(__dirname, 'src/data/'),
     },
   },
 };
