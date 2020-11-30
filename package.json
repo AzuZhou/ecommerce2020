@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Udemy course ecommerce + js dev env set up from scratch",
   "author": "Azucena Zhou",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "start": "webpack-dev-server --env.ENVIRONMENT=development --config webpack.config.dev.js --mode development",
     "build": "webpack --env.ENVIRONMENT=production --config webpack.config.prod.js --mode production",
