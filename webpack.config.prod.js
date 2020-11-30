@@ -46,6 +46,10 @@ module.exports = env => {
           test: /\.[s]css$/,
           use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
+        {
+          test: /\.svg$/,
+          use: ['@svgr/webpack'],
+        },
       ],
     },
     resolve: {
