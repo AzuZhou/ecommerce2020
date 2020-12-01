@@ -7,7 +7,7 @@ import CartDropdown from 'components/CartDropdown';
 import { selectCartHidden } from 'data/cart/selectors';
 import { selectCurrentUser } from 'data/user/selectors';
 
-import { HeaderContainer, LogoContainer, OptionsContainer, OptionDiv, OptionLink } from './styled';
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './styled';
 
 import Logo from 'assets/crown.svg';
 
@@ -24,9 +24,9 @@ const Header = ({ currentUser, hidden }) => (
         contact
       </OptionLink>
       {currentUser ? (
-        <OptionDiv className='uppercase' onClick={() => auth.signOut()}>
+        <OptionLink as='div' className='uppercase' onClick={() => auth.signOut()}>
           sign out
-        </OptionDiv>
+        </OptionLink>
       ) : (
         <OptionLink className='uppercase' to='/sign-in'>
           sign in
