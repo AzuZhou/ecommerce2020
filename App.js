@@ -7,11 +7,16 @@ import Shop from 'pages/Shop';
 import Sign from 'pages/Sign';
 import Checkout from 'pages/Checkout';
 import Header from 'components/Header';
-import { auth, createUserProfileDocument } from 'utils/firebase/firebase';
+import {
+  auth,
+  createUserProfileDocument,
+  addCollectionAndDocuments,
+} from 'utils/firebase/firebase';
 import { setCurrentUser } from 'data/user/actions';
 import { selectCurrentUser } from 'data/user/selectors';
+import { selectCollectionsForPreview } from 'data/shop/selectors';
 
-const App = ({ setCurrentUser, currentUser }) => {
+const App = ({ setCurrentUser, currentUser, collectionsArray }) => {
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -22,6 +27,12 @@ const App = ({ setCurrentUser, currentUser }) => {
       } else {
         setCurrentUser(userAuth);
       }
+
+      // used to programatically add data to firestore
+      addCollectionAndDocuments(
+        'collections',
+        collectionsArray.map(({ title, items }) => ({ title, items }))
+      );
     });
 
     return () => unsubscribeFromAuth();
@@ -42,6 +53,7 @@ const App = ({ setCurrentUser, currentUser }) => {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  collectionsArray: selectCollectionsForPreview,
 });
 
 const mapDispatchToProps = dispatch => ({
