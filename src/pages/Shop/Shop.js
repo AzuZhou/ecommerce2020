@@ -12,11 +12,11 @@ const CollectionWithSpinner = WithSpinner(Collection);
 
 const Shop = ({ match, updateCollections }) => {
   const [isLoading, setIsLoading] = useState(true);
-  let unsubscribeFromSnapshot = null;
 
   useEffect(() => {
     const collectionRef = firestore.collection('collections');
-    unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+
+    collectionRef.get().then(snapshot => {
       const collectionsMap = convertCollectionsSnapshotsToMap(snapshot);
       updateCollections(collectionsMap);
       setIsLoading(false);
