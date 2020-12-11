@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectCollection } from 'data/shop/selectors';
+import { compose } from 'redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCollection, selectIsCollectionsLoaded } from 'data/shop/selectors';
+import WithSpinner from 'components/WithSpinner';
 import CollectionItem from 'components/CollectionItem';
 
 const Collection = ({ collection }) => {
@@ -18,8 +21,9 @@ const Collection = ({ collection }) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  collection: selectCollection(ownProps.match.params.categoryId)(state),
+const mapStateToProps = createStructuredSelector({
+  collection: (state, ownProps) => selectCollection(ownProps.match.params.categoryId)(state),
+  isLoading: state => !selectIsCollectionsLoaded(state),
 });
 
-export default connect(mapStateToProps)(Collection);
+export default compose(connect(mapStateToProps), WithSpinner)(Collection);
