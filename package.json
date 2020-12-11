@@ -7,8 +7,8 @@
     "node": "12.x"
   },
   "scripts": {
-    "start": "webpack serve --env development --config webpack.config.dev.js --mode development",
-    "build": "webpack --env production --config webpack.config.prod.js --mode production",
+    "start": "webpack serve --env NODE_ENV=development --config webpack.config.dev.js --mode development",
+    "build": "webpack --env NODE_ENV=production --config webpack.config.prod.js --mode production",
     "scss": "node-sass style.scss -o ./"
   },
   "dependencies": {

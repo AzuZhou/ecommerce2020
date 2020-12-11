@@ -8,7 +8,7 @@ const fs = require('fs');
 module.exports = env => {
   const currentPath = path.join(__dirname);
   const basePath = currentPath + '/.env';
-  const envPath = basePath + '.' + env;
+  const envPath = basePath + `.${env.NODE_ENV}`;
   const finalPath = fs.existsSync(envPath) ? envPath : basePath;
   const fileEnv = dotenv.config({ path: finalPath }).parsed;
 
