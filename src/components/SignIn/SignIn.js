@@ -5,12 +5,19 @@ import CustomButton from 'components/CustomButton';
 import { googleSignIn, emailSignIn } from 'data/user/actions';
 
 const SignIn = ({ googleSignIn, emailSignIn }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
+  const { email, password } = userCredentials;
 
   const handleSubmit = async event => {
     event.preventDefault();
+
     emailSignIn(email, password);
+  };
+
+  const handleChange = event => {
+    const { value, name } = event.target;
+
+    setUserCredentials({ ...userCredentials, [name]: value });
   };
 
   return (
@@ -23,7 +30,7 @@ const SignIn = ({ googleSignIn, emailSignIn }) => {
           name='email'
           label='Email'
           value={email}
-          handleChange={event => setEmail(event.target.value)}
+          handleChange={handleChange}
           type='email'
           required
         />
@@ -31,7 +38,7 @@ const SignIn = ({ googleSignIn, emailSignIn }) => {
           name='password'
           label='Password'
           value={password}
-          handleChange={event => setPassword(event.target.value)}
+          handleChange={handleChange}
           type='password'
           required
         />

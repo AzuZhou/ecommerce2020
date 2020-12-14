@@ -5,19 +5,29 @@ import CustomButton from 'components/CustomButton';
 import { signUp } from 'data/user/actions';
 
 const SignUp = ({ signUp }) => {
-  const [displayName, setDisplayName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [userCredentials, setUserCredentials] = useState({
+    email: '',
+    displayName: '',
+    password: '',
+    confirmPassword: '',
+  });
+  const { email, displayName, password, confirmPassword } = userCredentials;
 
   const handleSubmit = async event => {
     event.preventDefault();
+
     if (password !== confirmPassword) {
       alert("Passwords don't match ");
       return;
     }
 
     signUp({ email, password, displayName });
+  };
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+
+    setUserCredentials({ ...userCredentials, [name]: value });
   };
 
   return (
@@ -29,7 +39,7 @@ const SignUp = ({ signUp }) => {
           type='text'
           name='displayName'
           value={displayName}
-          onChange={event => setDisplayName(event.target.value)}
+          onChange={handleChange}
           label='Display Name'
           required
         />
@@ -37,7 +47,7 @@ const SignUp = ({ signUp }) => {
           type='email'
           name='email'
           value={email}
-          onChange={event => setEmail(event.target.value)}
+          onChange={handleChange}
           label='Email'
           required
         />
@@ -45,7 +55,7 @@ const SignUp = ({ signUp }) => {
           type='password'
           name='password'
           value={password}
-          onChange={event => setPassword(event.target.value)}
+          onChange={handleChange}
           label='Password'
           required
         />
@@ -53,7 +63,7 @@ const SignUp = ({ signUp }) => {
           type='password'
           name='confirmPassword'
           value={confirmPassword}
-          onChange={event => setConfirmPassword(event.target.value)}
+          onChange={handleChange}
           label='Confirm Password'
           required
         />
