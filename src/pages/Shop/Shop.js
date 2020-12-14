@@ -3,10 +3,12 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Collection from 'pages/Collection';
 import CollectionsOverview from 'components/CollectionsOverview';
-import { fetchCollectionsAsync } from 'data/shop/actions';
+import { fetchCollections } from 'data/shop/actions';
 
-const Shop = ({ match, fetchCollectionsAsync }) => {
-  useEffect(() => fetchCollectionsAsync(), []);
+const Shop = ({ match, fetchCollections }) => {
+  useEffect(() => {
+    fetchCollections();
+  }, []);
 
   return (
     <div className='shop-page'>
@@ -17,7 +19,7 @@ const Shop = ({ match, fetchCollectionsAsync }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchCollectionsAsync: () => dispatch(fetchCollectionsAsync()),
+  fetchCollections: () => dispatch(fetchCollections()),
 });
 
 export default connect(null, mapDispatchToProps)(Shop);
