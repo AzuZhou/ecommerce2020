@@ -14,6 +14,7 @@ const App = ({ currentUser, checkUserSession }) => {
   useEffect(() => {
     checkUserSession();
   }, []);
+
   return (
     <div>
       <Header />
