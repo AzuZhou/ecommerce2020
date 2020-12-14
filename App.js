@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -7,26 +7,9 @@ import Shop from 'pages/Shop';
 import Sign from 'pages/Sign';
 import Checkout from 'pages/Checkout';
 import Header from 'components/Header';
-import { auth, createUserProfileDocument } from 'utils/firebase/firebase';
-import { setCurrentUser } from 'data/user/actions';
 import { selectCurrentUser } from 'data/user/selectors';
 
-const App = ({ setCurrentUser, currentUser }) => {
-  useEffect(() => {
-    const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-        userRef.onSnapshot(snapshot => {
-          setCurrentUser({ id: snapshot.id, ...snapshot.data() });
-        });
-      } else {
-        setCurrentUser(userAuth);
-      }
-    });
-
-    return () => unsubscribeFromAuth();
-  });
-
+const App = ({ currentUser }) => {
   return (
     <div>
       <Header />
@@ -44,8 +27,4 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
