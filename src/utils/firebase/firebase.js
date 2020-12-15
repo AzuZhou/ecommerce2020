@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: 'AIzaSyCJ-pPwyw-hdiZi5AzXin0LmR-wcryuf_U',
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: 'ecommerce2020-db.firebaseapp.com',
   databaseURL: 'https://ecommerce2020-db.firebaseio.com',
   projectId: 'ecommerce2020-db',
