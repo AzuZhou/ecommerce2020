@@ -1,13 +1,17 @@
 import React from 'react';
 import CollectionItem from 'components/CollectionItem';
 
+import { CollectionPreviewContainer, TitleContainer, PreviewContainer } from './styled';
+
 const PreviewCollection = ({ title, items }) => (
-  <div className='collection-preview'>
-    <h1 className='title uppercase'>{title}</h1>
-    <div className='preview'>
+  <CollectionPreviewContainer>
+    <TitleContainer onClick={() => history.push(`${match.path}/${routeName}`)}>
+      {title.toUpperCase()}
+    </TitleContainer>
+    <PreviewContainer>
       {items.map((item, i) => i < 4 && <CollectionItem key={item.id} item={item} />)}
-    </div>
-  </div>
+    </PreviewContainer>
+  </CollectionPreviewContainer>
 );
 
 export default PreviewCollection;

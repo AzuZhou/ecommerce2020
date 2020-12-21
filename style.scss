@@ -16,21 +16,3 @@
 @import 'src/style/checkout-item';
 @import 'src/style/collections-overview';
 @import 'src/style/collection';
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Open Sans Condensed', sans-serif;
-  padding: 20px 60px;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
