@@ -32,10 +32,10 @@ a {
 }
 `;
 
-const Home = lazy(() => import('pages/Home'));
-const Shop = lazy(() => import('pages/Shop'));
-const Sign = lazy(() => import('pages/Sign'));
-const Checkout = lazy(() => import('pages/Checkout'));
+const Home = lazy(() => import(/* webpackChunkName: "Home" */ 'pages/Home'));
+const Shop = lazy(() => import(/* webpackChunkName: "Shop" */ 'pages/Shop'));
+const Sign = lazy(() => import(/* webpackChunkName: "Sign" */ 'pages/Sign'));
+const Checkout = lazy(() => import(/* webpackChunkName: "Checkout" */ 'pages/Checkout'));
 
 const App = ({ currentUser, checkUserSession }) => {
   useEffect(() => {
