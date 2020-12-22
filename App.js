@@ -7,6 +7,7 @@ import Header from 'components/Header';
 import Spinner from 'components/Spinner';
 import { selectCurrentUser } from 'data/user/selectors';
 import { checkUserSession } from 'data/user/actions';
+import ErrorBoundary from 'components/ErrorBoundary';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -46,14 +47,16 @@ const App = ({ currentUser, checkUserSession }) => {
     <div>
       <GlobalStyle />
       <Header />
-      <Suspense fallback={<Spinner />}>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/shop' component={Shop} />
-          <Route path='/checkout' component={Checkout} />
-          <Route path='/sign-in' render={() => (currentUser ? <Redirect to='' /> : <Sign />)} />
-        </Switch>
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/shop' component={Shop} />
+            <Route path='/checkout' component={Checkout} />
+            <Route path='/sign-in' render={() => (currentUser ? <Redirect to='' /> : <Sign />)} />
+          </Switch>
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 };
