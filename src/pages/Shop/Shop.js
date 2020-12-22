@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { fetchCollections } from 'data/shop/actions';
 import Spinner from 'components/Spinner';
 
-const Collection = lazy(() => import(/* webpackChunkName: "Home" */ 'pages/Collection'));
+const Collection = lazy(() => import(/* webpackChunkName: "Collection" */ 'pages/Collection'));
 const CollectionsOverview = lazy(() =>
-  import(/* webpackChunkName: "Home" */ 'components/CollectionsOverview')
+  import(/* webpackChunkName: "CollectionsOverview" */ 'components/CollectionsOverview')
 );
 
 const Shop = ({ match, fetchCollections }) => {
