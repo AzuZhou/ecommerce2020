@@ -23,7 +23,7 @@ module.exports = env => {
     entry: [path.resolve(__dirname, './index.js')],
     target: 'web',
     output: {
-      path: path.resolve(__dirname, './'),
+      path: path.resolve(__dirname, './dist'),
       publicPath: '/',
       filename: 'bundle.js',
     },
