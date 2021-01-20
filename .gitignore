@@ -7,3 +7,6 @@ yarn-error.log*
 # Environment
 .env.development
 .env.production
+
+# Build
+dist/

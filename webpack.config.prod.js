@@ -20,12 +20,12 @@ module.exports = env => {
   return {
     mode: 'production',
     devtool: 'source-map',
-    entry: [path.resolve(__dirname, './index.js')],
+    entry: [path.resolve(__dirname, 'index.js')],
     target: 'web',
     output: {
-      path: path.resolve(__dirname, './dist'),
+      path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
-      filename: 'bundle.js',
+      filename: '[name].bundle.js',
     },
     plugins: [
       new HtmlWebpackPlugin({

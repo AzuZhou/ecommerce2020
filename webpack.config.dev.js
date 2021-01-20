@@ -19,12 +19,12 @@ module.exports = env => {
   return {
     mode: 'development',
     devtool: 'inline-source-map',
-    entry: [path.resolve(__dirname, './index.js')],
+    entry: [path.resolve(__dirname, 'index.js')],
     target: 'web',
     output: {
-      path: path.resolve(__dirname, './'),
+      path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
-      filename: 'bundle.js',
+      filename: '[name].bundle.js',
     },
     devServer: {
       historyApiFallback: true,
