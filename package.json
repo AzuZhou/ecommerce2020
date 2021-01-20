@@ -9,7 +9,8 @@
   "scripts": {
     "start": "webpack serve --env NODE_ENV=development --config webpack.config.dev.js --mode development",
     "build": "webpack --env NODE_ENV=production --config webpack.config.prod.js --mode production",
-    "scss": "node-sass style.scss -o ./"
+    "scss": "node-sass style.scss -o ./",
+    "heroku-prebuild": "yarn install --production=false"
   },
   "dependencies": {
     "firebase": "^8.0.0",
