@@ -22,12 +22,13 @@ module.exports = env => {
     entry: [path.resolve(__dirname, 'index.js')],
     target: 'web',
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'build'),
       publicPath: '/',
       filename: '[name].bundle.js',
     },
     devServer: {
       historyApiFallback: true,
+      contentBase: './build',
     },
     plugins: [
       new HtmlWebpackPlugin({
